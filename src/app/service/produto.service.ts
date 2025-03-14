@@ -1,22 +1,36 @@
-// import { inject, Injectable } from '@angular/core';
-// import { collectionData, Firestore } from '@angular/fire/firestore';
-// import { Observable } from 'rxjs';
-// import { Produto } from '../interface/produto.interface';
-// import { collection } from 'firebase/firestore';
-// import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Injectable } from '@angular/core';
+import { Firestore, collection, collectionData, doc, addDoc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Product } from '../interface/produto.interface';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class ProdutoService {
-// constructor (private firestore: AngularFirestore){}
+@Injectable({
+  providedIn: 'root'
+})
+export class ProdutoService {
+  private collectionName = 'products';
 
-// getProduto():Observable<Produto[]>{
-// const produtoColecao = collection(this.firestore,'produtos') 
-// return collectionData(produtoColecao,{idField:'chave'}) as Observable<Produto[]>
-// }
+  constructor(private firestore: Firestore) {}
 
-// getProduto(){
-//   return this.firestore.collection('produtos').snapshotChanges();
-// }
-// }
+  getProducts(): Observable<Product[]> {
+    const productsCollection = collection(this.firestore, this.collectionName);
+    return collectionData(productsCollection, { idField: 'id' }) as Observable<Product[]>;
+  }
+
+  async addProduct(product: Product): Promise<string> {
+    const productsCollection = collection(this.firestore, this.collectionName);
+    console.log(product)
+    const docRef = await addDoc(productsCollection, product);
+    return docRef.id;
+  }
+
+  async updateProduct(product: Product): Promise<void> {
+    const productDoc = doc(this.firestore, `${this.collectionName}/${product.id}`);
+    return updateDoc(productDoc, { ...product });
+  }
+  
+
+  async deleteProduct(id: string): Promise<void> {
+    const productDoc = doc(this.firestore, `${this.collectionName}/${id}`);
+    return deleteDoc(productDoc);
+  }
+}
