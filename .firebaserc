@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "crud-angular-26563"
-  }
+    "default": "crud-angular-26563",
+    "firebase use --add": "crud-angular-26563"
+  },
+  "targets": {},
+  "etags": {}
 }
