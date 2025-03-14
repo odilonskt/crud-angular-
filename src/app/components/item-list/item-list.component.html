@@ -5,14 +5,14 @@
         <input type="text" [(ngModel)]="newProduct.descricaoDoProduto" placeholder="Descrição" maxlength="50" required [ngModelOptions]="{standalone: true}">
         <input type="text" [(ngModel)]="newProduct.codigo" placeholder="Código" maxlength="10" required [ngModelOptions]="{standalone: true}">
         <input type="number" [(ngModel)]="newProduct.quantidade" placeholder="Quantidade" min="0" required [ngModelOptions]="{standalone: true}">
-        <button  class="Adicionar-produto" (click)="addProduct()">Adicionar Produto</button>
+        <button  type="button" class="Adicionar-produto" (click)="addProduct()">Adicionar Produto</button>
     </form>
   <form  class="example-form" *ngIf="mode === 'edit'" >
         <input type="text" [(ngModel)]="editarProduct.nomeDoProduto" placeholder="Nome do Produto" maxlength="20" required [ngModelOptions]="{standalone: true}">
         <input type="text" [(ngModel)]="editarProduct.descricaoDoProduto" placeholder="Descrição" maxlength="50" required [ngModelOptions]="{standalone: true}">
         <input type="text" [(ngModel)]="editarProduct.codigo" placeholder="Código" maxlength="10" required [ngModelOptions]="{standalone: true}">
         <input type="number" [(ngModel)]="editarProduct.quantidade" placeholder="Quantidade" min="0" required [ngModelOptions]="{standalone: true}">
-        <button  class="Adicionar-produto" (click)="editProduct()">Salvar</button>
+        <button type="button" class="Adicionar-produto" (click)="editProduct()">Salvar</button>
     </form>
     
     
