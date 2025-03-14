@@ -23,6 +23,6 @@ on:
        uses: w9jds/firebase-action@master
         with:
         args: deploy --only hosting
-        project: your-firebase-project-id
-        token: ${{ secrets.FIREBASE_TOKEN }}
+        project: "${{ secrets.ID_PROJETO }}"
+        token:  "${{ secrets.FIREBASE_TOKEN }}"
       
