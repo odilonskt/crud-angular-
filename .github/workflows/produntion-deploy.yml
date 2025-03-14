@@ -12,17 +12,19 @@ on:
       - uses: actions/checkout@master
       - name: Set up Node.js
 
-      uses: actions/setup-node@v1
-        with:
+    - uses: actions/setup-node@v1
+      with:
         node-version: 12.x
-      - name: Install dependencies
-        run: npm install
-      - name: Build frontend
-        run: npm run build
-      - name: Deploy to Firebase
-       uses: w9jds/firebase-action@master
-        with:
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build frontend
+      run: npm run build
+
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
         args: deploy --only hosting
         project: "${{ secrets.ID_PROJETO }}"
         token: "${{ secrets.FIREBASE_TOKEN }}"
-      
