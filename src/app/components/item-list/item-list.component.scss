@@ -1,0 +1,97 @@
+input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+    // margin: 2%;
+  }
+  
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .Adicionar-produto{
+    border-radius: 15px;
+    padding: 10px 20px;
+    background-color: #0271e9;
+
+  }
+
+  .Adicionar-produto:focus{
+    background-color: #273d55;
+    color: white;
+    transition: background-color 0.01s ease-in-out;
+  }
+
+  .button-editar{
+    border-radius: 15px;
+    padding: 10px 20px;
+    background-color: #0271e9;
+
+    
+  }
+  .button-editar:focus{
+    background-color: #273d55;
+    color: white;
+    transition: background-color 0.01s ease-in-out;
+  }
+
+  .button-excluir{
+    border-radius: 15px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+
+  }
+  .button-excluir:focus{
+    background-color: #8c1515;
+    color: white;
+    transition: background-color 0.01s ease-in-out;
+  }
+
+  .pai-lista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // flex-wrap: wrap;
+   
+    .div-list{
+      border: 1px solid rgba(7, 5, 5, 0.856);
+      border-radius: 1px;
+      text-align: center;
+      
+    
+    }
+  }
+    
+  li{
+    list-style-type: none;
+    margin: 10px;
+  }
+
+
+
+  .div-button-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+  }
+  .div-button-list,button{
+    margin: 10px;
+  }

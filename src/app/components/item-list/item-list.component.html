@@ -1,5 +1,50 @@
-<ul>
-    <li *ngFor="let produto of items$ | async">
-        <p>{{produto.nomeDoProduto}}</p>
-    </li>
-</ul>
+<div>
+    <form  class="example-form" *ngIf="mode === 'add'">
+
+        <input type="text" [(ngModel)]="newProduct.nomeDoProduto" placeholder="Nome do Produto" maxlength="20" required [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="newProduct.descricaoDoProduto" placeholder="Descrição" maxlength="50" required [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="newProduct.codigo" placeholder="Código" maxlength="10" required [ngModelOptions]="{standalone: true}">
+        <input type="number" [(ngModel)]="newProduct.quantidade" placeholder="Quantidade" min="0" required [ngModelOptions]="{standalone: true}">
+        <button  class="Adicionar-produto" (click)="addProduct()">Adicionar Produto</button>
+    </form>
+  <form  class="example-form" *ngIf="mode === 'edit'" >
+        <input type="text" [(ngModel)]="editarProduct.nomeDoProduto" placeholder="Nome do Produto" maxlength="20" required [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="editarProduct.descricaoDoProduto" placeholder="Descrição" maxlength="50" required [ngModelOptions]="{standalone: true}">
+        <input type="text" [(ngModel)]="editarProduct.codigo" placeholder="Código" maxlength="10" required [ngModelOptions]="{standalone: true}">
+        <input type="number" [(ngModel)]="editarProduct.quantidade" placeholder="Quantidade" min="0" required [ngModelOptions]="{standalone: true}">
+        <button  class="Adicionar-produto" (click)="editProduct()">Salvar</button>
+    </form>
+    
+    
+    <ul>
+        <li *ngFor="let product of products">
+           <div class="pai-lista">
+            <div class="div-list">
+
+                <div class="nomeDoProduto">
+                  <strong>Nome do Produto:</strong>
+                 {{ product.nomeDoProduto }}
+ 
+                </div> 
+                 <div class="descricaoDoProduto">
+                     <strong>Descrição:</strong>
+                     {{ product.descricaoDoProduto }} 
+                 </div> 
+                 <div  class="codigo">
+                     <strong>Código:</strong>
+                     ({{ product.codigo }})
+                 </div>
+                <div class="nomeDoProduto"> 
+                 <strong>Quantidade:</strong>
+                  Quantidade: {{ product.quantidade }} 
+                 </div> 
+             </div>
+             <div class="div-button-list">
+                 <button  (click)="hadleUpdateProduct(product)" class="button-editar">Editar</button>
+                 <button (click)="deleteProduct(product.id)" class="button-excluir">Excluir</button>
+             </div> 
+            </div>
+        </li>
+    </ul> 
+
+</div>
