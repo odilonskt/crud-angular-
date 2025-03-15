@@ -22,8 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build frontend (Production)
-        run: ng build --configuration=production
-
       - name: Deploy to Firebase
         run: firebase deploy --only hosting --token "${{ secrets.FIREBASE_TOKEN }}"
